@@ -6,7 +6,6 @@ spec:
   tls:
   - secretName: mycert
   rules:
-  - host: wordpress.myproject.com
     http:
       paths:
       - path: /*
