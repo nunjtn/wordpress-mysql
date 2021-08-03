@@ -11,7 +11,7 @@ spec:
       paths:
       - path: /*
         pathType: ImplementationSpecific
-      - backend:
+        backend:
           service:
             name: wordpress-svc
             port:
