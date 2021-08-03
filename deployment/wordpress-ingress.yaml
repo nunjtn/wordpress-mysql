@@ -6,7 +6,7 @@ spec:
   tls:
   - secretName: mycert
   rules:
-    http:
+  - http:
       paths:
       - path: /*
         pathType: ImplementationSpecific
