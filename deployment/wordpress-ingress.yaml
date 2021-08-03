@@ -9,6 +9,8 @@ spec:
   - host: wordpress.myproject.com
     http:
       paths:
+      - path: /*
+        pathType: ImplementationSpecific
       - backend:
           service:
             name: wordpress-svc
