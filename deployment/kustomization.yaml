@@ -5,13 +5,14 @@ secretGenerator:
   literals:
     - databaseName=wordpress
     - username=wordpress-db-user
-    - password=aNotSoSecretPassword
+    - password=wordpress-db-passwd
 - name: mysql-root-pass
   literals:
-  - password=aNotSoSecretRootPassword
+  - password=wordpress-db-rootpasswd
 resources:
   - mysql-configmap.yaml
   - mysql-service.yaml
   - mysql-statefulset.yaml
   - wordpress-deployment.yaml
   - wordpress-ingress.yaml
+  - wordpress-nfsserver.yaml
