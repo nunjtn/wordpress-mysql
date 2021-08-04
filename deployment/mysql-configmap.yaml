@@ -16,3 +16,4 @@ data:
     [mysqld]
     skip-host-cache
     skip-name-resolve
+    super-read-only
