@@ -64,3 +64,36 @@ spec:
         ports:
         - containerPort: 80
           name: wordpress
+---
+        volumeMounts:
+        - name: wordpress-persistent-storage
+          mountPath: /var/www/html
+      volumes:
+      - name: wordpress-persistent-storage
+        persistentVolumeClaim:
+            claimName: wordpress-nfs
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs
+spec:
+  capacity:
+    storage: 20G
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: nfs-server.default.svc.cluster.local
+    path: "/"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: wordpress-nfs
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 20G
