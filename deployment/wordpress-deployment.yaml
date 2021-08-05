@@ -80,7 +80,7 @@ spec:
   accessModes:
     - ReadWriteMany
   nfs:
-    server: nfs-server.$namespace.svc.cluster.local
+    server: nfs-server.${namespace}.svc.cluster.local
     path: "/"
 ---
 apiVersion: v1
