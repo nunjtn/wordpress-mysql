@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: wordpress-svc
   labels:
-    app: cms
+    app: wordpress-svc
 spec:
   ports:
     - port: 80
