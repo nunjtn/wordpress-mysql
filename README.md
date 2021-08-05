@@ -78,5 +78,23 @@ EOF
 ```
 kubectl apply -k ./
 ```
+The result from previous command 
+```
+namespace/wordpress-namespace created
+configmap/mysql created
+secret/mysql-pass-t95t696569 created
+secret/mysql-root-pass-2ht65724t5 created
+service/mysql created
+service/nfs-server created
+service/wordpress-svc created
+persistentvolume/wordpress-nfs created
+persistentvolumeclaim/nfs created
+persistentvolumeclaim/wordpress-nfs created
+deployment.apps/wordpress created
+statefulset.apps/mysql created
+ingress.networking.k8s.io/ingress created
+replicationcontroller/nfs-server created
+```
 
+- 
 
