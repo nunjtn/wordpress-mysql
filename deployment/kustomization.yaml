@@ -10,6 +10,7 @@ secretGenerator:
   literals:
   - password=wordpress-db-rootpasswd
 resources:
+  - namespace.yaml
   - mysql-configmap.yaml
   - mysql-service.yaml
   - mysql-statefulset.yaml
