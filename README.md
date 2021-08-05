@@ -29,7 +29,7 @@ docker build -t ${registry}:${tag} .
 docker push ${registry}:${tag}
 ```
 
-4. Install the nginx ingress controller. Please see the [installation guild](https://kubernetes.github.io/ingress-nginx/deploy/) for each kubernetes platform. 
+4. Install the nginx ingress controller. Please see the [installation guild](https://kubernetes.github.io/ingress-nginx/deploy/) for other kubernetes platform. 
 ```
 #Example for GKE
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.48.1/deploy/static/provider/cloud/deploy.yaml
@@ -40,7 +40,17 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 ```
 cd deployment
 ```
-- Set DBNAME, DBUSERNAME, DBPASSWORD and DBROOTPASSWORD 
+- Create new namespace for wordpress application deployment
+```
+cat <<EOF > namespace.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: <NAMESPACE>
+EOF  
+```
+
+- Set DBNAME, DBUSERNAME, DBPASSWORD and DBROOTPASSWORD on kustomization.yaml
 ```
 cat <<EOF > kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
@@ -55,6 +65,7 @@ secretGenerator:
   literals:
   - password=<DBROOTPASSWORD>
 resources:
+  - namespace.yaml
   - mysql-configmap.yaml
   - mysql-service.yaml
   - mysql-statefulset.yaml
@@ -63,7 +74,7 @@ resources:
   - wordpress-nfsserver.yaml
 EOF
 ```
-- Apply all manifest file Kustomize.
+- Apply all manifest files using Kustomize. 
 ```
 kubectl apply -k ./
 ```
