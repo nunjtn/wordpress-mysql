@@ -23,7 +23,7 @@ export registry=<registry/imagename>
 export tag=<tag>
 ```
 
-3. Build docker image (optional)
+3. Build docker image. (optional)
 ```
 docker build -t ${registry}:${tag} .
 docker push ${registry}:${tag}
