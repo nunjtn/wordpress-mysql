@@ -32,7 +32,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: ${registry}:${tag}
+      - image: wordpress:5.7.2
         name: wordpress
         resources:
           requests:
@@ -80,7 +80,7 @@ spec:
   accessModes:
     - ReadWriteMany
   nfs:
-    server: nfs-server.${namespace}.svc.cluster.local
+    server: nfs-server.wordpress-namespace.svc.cluster.local
     path: "/"
 ---
 apiVersion: v1
