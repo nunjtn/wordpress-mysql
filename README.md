@@ -23,9 +23,10 @@ export tag=<tag>
 docker build -t ${registry}:${tag} .
 docker push ${registry}:${tag}
 ```
-3. Install the nginx ingress controller
+3. Install the nginx ingress controller. Please see the [installation guild](https://kubernetes.github.io/ingress-nginx/deploy/) for each kubernetes platform. 
 ```
-https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.48.1/deploy/static/provider/cloud/deploy.yaml
+#Example for GKE
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.48.1/deploy/static/provider/cloud/deploy.yaml
 ```
 
 4. Deploy wordpress application with MySQL database
