@@ -84,5 +84,19 @@ ingress.networking.k8s.io/ingress created
 replicationcontroller/nfs-server created
 ```
 
+- Verify pods status and wait until all pods status change to "Running".
+```
+watch kubectl get pod -n wordpress-namespace
+```
 - 
+```
+kubectl get ingress -n wordpress-namespace
+```
+The ingress loadbalancer ip will show up (This process can take 2-3 minutes)
+```
+NAME      CLASS    HOSTS   ADDRESS          PORTS     AGE
+ingress   <none>   *       35.198.218.114   80, 443   31m
+```
+- Access the des
+![image](https://user-images.githubusercontent.com/74763224/128417930-5b4198d3-79b3-40ef-a372-38895a6bf614.png)
 
