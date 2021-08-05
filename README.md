@@ -36,18 +36,13 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 ```
 
 5. Deploy wordpress application with MySQL database
+- Set namespace name
+```
+export namespace=<NAMESPACE>
+```
 - Go to deployment directory
 ```
 cd deployment
-```
-- Create new namespace for wordpress application deployment
-```
-cat <<EOF > namespace.yaml
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: <NAMESPACE>
-EOF  
 ```
 
 - Set DBNAME, DBUSERNAME, DBPASSWORD and DBROOTPASSWORD on kustomization.yaml
@@ -72,6 +67,7 @@ resources:
   - wordpress-deployment.yaml
   - wordpress-ingress.yaml
   - wordpress-nfsserver.yaml
+namespace: $namespace
 EOF
 ```
 - Apply all manifest files using Kustomize. 
