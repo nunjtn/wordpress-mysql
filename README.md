@@ -17,29 +17,21 @@ This repository provide an example of how to deploy highly available wordpress w
 git clone https://github.com/nunjtn/wordpress-mysql.git
 ```
 
-2. Set the wordpress image source and tag.
+2. Build docker image. (optional)
 ```
 export registry=<registry/imagename>
 export tag=<tag>
-```
-
-3. Build docker image. (optional)
-```
 docker build -t ${registry}:${tag} .
 docker push ${registry}:${tag}
 ```
 
-4. Install the nginx ingress controller. Please see the [installation guild](https://kubernetes.github.io/ingress-nginx/deploy/) for other kubernetes platform. 
+3. Install the nginx ingress controller. Please see the [installation guild](https://kubernetes.github.io/ingress-nginx/deploy/) for other kubernetes platform. 
 ```
 #Example for GKE
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.48.1/deploy/static/provider/cloud/deploy.yaml
 ```
 
-5. Deploy wordpress application with MySQL database
-- Set namespace name
-```
-export namespace=<NAMESPACE>
-```
+4. Deploy wordpress application with MySQL database
 - Go to deployment directory
 ```
 cd deployment
@@ -67,7 +59,7 @@ resources:
   - wordpress-deployment.yaml
   - wordpress-ingress.yaml
   - wordpress-nfsserver.yaml
-namespace: ${namespace}
+namespace: wordpress-namespace
 EOF
 ```
 - Apply all manifest files using Kustomize. 
