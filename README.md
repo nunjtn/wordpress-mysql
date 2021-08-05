@@ -67,7 +67,7 @@ resources:
   - wordpress-deployment.yaml
   - wordpress-ingress.yaml
   - wordpress-nfsserver.yaml
-namespace: $namespace
+namespace: ${namespace}
 EOF
 ```
 - Apply all manifest files using Kustomize. 
