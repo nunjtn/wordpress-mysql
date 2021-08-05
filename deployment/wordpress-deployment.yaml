@@ -42,8 +42,6 @@ spec:
             memory: "300Mi"
             cpu: "200m"
         env:
-        - name: WP_MEMORY_LIMIT
-          value: "128M"
         - name: WORDPRESS_DB_HOST
           value: mysql
         - name: WORDPRESS_DB_NAME
@@ -82,7 +80,7 @@ spec:
   accessModes:
     - ReadWriteMany
   nfs:
-    server: nfs-server.default.svc.cluster.local
+    server: nfs-server.$namespace.svc.cluster.local
     path: "/"
 ---
 apiVersion: v1
