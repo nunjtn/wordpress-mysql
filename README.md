@@ -25,7 +25,7 @@ docker build -t ${registry}:${tag} .
 docker push ${registry}:${tag}
 ```
 
-3. Install the nginx ingress controller. Please see the [installation guild](https://kubernetes.github.io/ingress-nginx/deploy/) for other kubernetes platform. 
+3. Install the nginx ingress controller. Please see the [installation guild](https://kubernetes.github.io/ingress-nginx/deploy/) for other kubernetes platforms. 
 ```
 #Example for GKE
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.48.1/deploy/static/provider/cloud/deploy.yaml
@@ -88,15 +88,14 @@ replicationcontroller/nfs-server created
 ```
 watch kubectl get pod -n wordpress-namespace
 ```
-- 
+- The ingress loadbalancer IP will show up (This process can take 2-3 minutes)
 ```
 kubectl get ingress -n wordpress-namespace
 ```
-The ingress loadbalancer ip will show up (This process can take 2-3 minutes)
 ```
 NAME      CLASS    HOSTS   ADDRESS          PORTS     AGE
 ingress   <none>   *       35.198.218.114   80, 443   31m
 ```
-- Access the des
+- The application should be able to access via https://35.198.218.114
 ![image](https://user-images.githubusercontent.com/74763224/128417930-5b4198d3-79b3-40ef-a372-38895a6bf614.png)
 
