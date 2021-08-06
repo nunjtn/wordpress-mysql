@@ -88,7 +88,7 @@ replicationcontroller/nfs-server created
 ```
 watch kubectl get pod -n wordpress-namespace
 ```
-- The ingress loadbalancer IP will show up (This process can take 2-3 minutes)
+- The ingress loadbalancer IP will show up. (This process can take 2-3 minutes)
 ```
 kubectl get ingress -n wordpress-namespace
 ```
