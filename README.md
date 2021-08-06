@@ -2,6 +2,7 @@
 
 This repository provide an example of how to deploy highly available wordpress with MySQL database on kubernetes cluster.
 
+The application and service overview.
 - High availability Wordpress application
 - NFS storage for Wordpress application
 - MySQL replication cluster
